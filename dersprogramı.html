@@ -4,15 +4,13 @@
   <meta charset="utf-8">
   <title>3. Sınıf / Güz - Üç Farklı CSS Yöntemi</title>
 
-  
   <link rel="stylesheet" href="style.css">
 
-  
   <style>
     body {
       font-family: 'Segoe UI', Roboto, Arial, sans-serif;
       padding: 20px;
-      background: #f5f5f7;
+      background: linear-gradient(to bottom right, #000000, #babac7);
     }
 
     .header {
@@ -21,13 +19,14 @@
       border-bottom: 2px solid #999;
       font-weight: 700;
       font-size: 18px;
-      background: #e6e6e6;
+      background: linear-gradient(to bottom right, #000000, #babac7);
+      color: white;
     }
 
     .timetable-internal {
       max-width: 1100px;
       margin: 40px auto;
-      background: white;
+      background: linear-gradient(to bottom right, #000000, #babac7);
       border: 2px solid #999;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
     }
@@ -35,6 +34,7 @@
     .timetable-internal table {
       width: 100%;
       border-collapse: collapse;
+      background: white;
     }
 
     .timetable-internal th, .timetable-internal td {
@@ -45,19 +45,49 @@
     }
 
     .timetable-internal th {
-      background: #e6e6e6;
+      background: #ececec;
+    }
+
+    .timetable {
+      max-width: 1100px;
+      margin: 40px auto;
+      background: linear-gradient(to bottom right, #000000, #babac7);
+      border: 2px solid #999;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    .timetable table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    .timetable th, .timetable td {
+      border: 1px solid #9b9b9b;
+      padding: 6px;
+      text-align: center;
+      height: 60px;
+    }
+
+    .timetable th {
+      background: #ececec;
     }
   </style>
 </head>
 
 <body>
 
- 
-  <div style="max-width:1100px; margin:20px auto; border:2px solid #999; background:white; box-shadow:0 6px 18px rgba(0,0,0,0.06);">
-    <div style="text-align:center; padding:10px 0; border-bottom:2px solid #999; font-weight:700; font-size:18px; background:#e6e6e6;">
+  <!-- 1. BLOK -->
+  <div style="max-width:1100px; margin:20px auto; border:2px solid #999; 
+              background:linear-gradient(to bottom right, #000000, #babac7);
+              box-shadow:0 6px 18px rgba(0,0,0,0.06);">
+    <div style="text-align:center; padding:10px 0; border-bottom:2px solid #999; 
+                font-weight:700; font-size:18px;
+                background:linear-gradient(to bottom right, #000000, #babac7); color:white;">
       3.sınıf / GÜZ
     </div>
-    <table style="width:100%; border-collapse:collapse;">
+
+    <table style="width:100%; border-collapse:collapse; background:white;">
       <thead>
         <tr>
           <th style="border:1px solid #999;">Ders</th>
@@ -78,7 +108,7 @@
     </table>
   </div>
 
-  
+  <!-- 2. BLOK -->
   <div class="timetable-internal">
     <div class="header">3.sınıf / GÜZ</div>
     <table>
@@ -96,7 +126,7 @@
     </table>
   </div>
 
-  
+  <!-- 3. BLOK -->
   <div class="timetable">
     <div class="header">3.sınıf / GÜZ</div>
     <table>
@@ -116,3 +146,4 @@
 
 </body>
 </html>
+
