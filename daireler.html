@@ -1,54 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daireler</title>
-    <style>
-        body{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-            overflow: hidden;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daireler</title>
+  <style>
+    
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(to bottom right, #000000, #babac7);
+      overflow: hidden;
+    }
 
-        .circle {
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            opacity: 0.6;
-            
-        }
+    
+    .container {
+      position: relative;
+      width: 320px;  
+      height: 320px;  
 
-        .circle1{
-            background-color:#021d25;
-            top: 50px;
-            left: 50px;
-        }
+    }
 
-        .circle2{
-            background-color:#69ab3e;
-            top: 50px;
-            left: 150px;
-        }
+    .circle {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      opacity: 0.6;
+      box-sizing: border-box;
+    }
 
-        .circle3{
-            background-color:#025fff;
-            top: 150px;
-            left: 100px;
-        }
+    .circle1{
+      background-color:#e20e4d;
+      top: 50px;
+      left: 50px;
+    }
 
-    </style>
+    .circle2{
+      background-color:#69ab3e;
+      top: 50px;
+      left: 150px;
+    }
+
+    .circle3{
+      background-color:#025fff;
+      top: 150px;
+      left: 100px;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
     <div class="circle circle1"></div>
     <div class="circle circle2"></div>
     <div class="circle circle3"></div>
-
-   
+  </div>
 </body>
 </html>
