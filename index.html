@@ -1,27 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mustafa Ülgü</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #0f0f0f, #3a3a3a);
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 36px;
+            letter-spacing: 1px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 10px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
+            transition: 0.3s;
+            backdrop-filter: blur(6px);
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.4);
+        }
+
+        .card a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .card a:hover {
+            color: #a8e6cf;
+        }
+
+        /* Çoklu ödev listesi için */
+        .sub-links a {
+            display: block;
+            font-size: 16px;
+            margin-top: 6px;
+            color: #ddd;
+            font-weight: normal;
+        }
+
+        .sub-links a:hover {
+            color: #a8e6cf;
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>mustafaülgü</h1>
-    <br><li></li>
-    <li>1.hafta</li>
 
-    <li>2.hafta</li>
-    <br>
-    <a href="dersprogramı.html">Ders Programı</a>
-    <a href="daireler.html">Daireler</a>
-    <a href="sınıfödev.html">Sınıf Ödev</a>
-    <a href="daireödevi.html">Animasyon Ödev</a>
-    <a href="oyunkartları.html">Oyun Kartları</a>
-    <a href="form1.html">Form</a>
-    <a href="test.html">TEST</a>
+    <h1>Mustafa Ülgü</h1>
+
+    <div class="grid-container">
+
+        <div class="card"><a href="#">1. Hafta Ödevi</a><p class="subtitle">ÖDEV YOK</p></div>
+        <div class="card"><a href="#">2. Hafta Ödevi</a><p class="subtitle">ÖDEV YOK</p></div>
+        <div class="card"><a href="#">3. Hafta Ödevi</a><p class="subtitle">ÖDEV YOK</p></div>
+
+        <div class="card">
+            <a href>4. Hafta Ödevi</a>
+
+            <div class="sub-links">
+                <a href="https://mustafa3380760.github.io/BTE311/form1.html">FORM</a>
+                <a href="https://mustafa3380760.github.io/BTE311/test.html">TEST</a>
+            </div>
+        </div>
+
+        <div class="card"><a href="https://mustafa3380760.github.io/BTE311/dersprogramı.html">5. Hafta Ödevi</a><p class="subtitle">DERS PROGRAMI</p></div>
+        <div class="card"><a href="https://mustafa3380760.github.io/BTE311/daireler.html">6. Hafta Ödevi</a><p class="subtitle">VENN ŞEMASI</p></div>
+
+        <div class="card"><a href="https://mustafa3380760.github.io/BTE311/daireödevi.html">7. Hafta Ödevi</a><p class="subtitle">ANİMASYON DAİRELER</p></div>
+        <div class="card"><a href="https://mustafa3380760.github.io/BTE311/oyunkartları.html">8. Hafta Ödevi</a><p class="subtitle">KARTLAR</p></div>
+        <div class="card"><a href="#">9. Hafta Ödevi</a><p class="subtitle">BELLİ DEĞİL</p></div>
+
+    </div>
+
 </body>
-
 </html>
+
 
 
 
