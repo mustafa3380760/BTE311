@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Konu Testi</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(to bottom right, #000000, #babac7);
+            font-family: Arial, sans-serif;
+            padding-bottom: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            background: #afe2ff;
+            padding: 10px;
+            border-radius: 10px;
+            width: 300px;
+            margin-top: 20px;
+        }
+
+        /* Soruların kutularını hiç değiştirmedim */
+        .soru-kutu {
+            background: #fff7db;
+            padding: 20px;
+            border: 2px solid #ffe28a;
+            width: 70%;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #54b8ff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #2fa3ff;
+        }
+    </style>
+</head>
+<body>
+
+<h2>HTML Konu Testi</h2>
+
+<form>
+
+    <div class="soru-kutu">
+        <h3>1. HTML neyin kısaltmasıdır?</h3>
+        <label><input type="radio" name="s1"> Hyper Text Markup Language</label><br>
+        <label><input type="radio" name="s1"> High Tool Modern Language</label><br>
+        <label><input type="radio" name="s1"> Hyperlink Text Main Line</label><br>
+    </div>
+
+    <div class="soru-kutu">
+        <h3>2. Aşağıdakilerden hangisi HTML yapısı için zorunludur?</h3>
+        <label><input type="checkbox" name="s2"> &lt;html&gt;</label><br>
+        <label><input type="checkbox" name="s2"> &lt;body&gt;</label><br>
+        <label><input type="checkbox" name="s2"> &lt;script&gt;</label><br>
+    </div>
+
+    <div class="soru-kutu">
+        <h3>3. &lt;a&gt; etiketi ne için kullanılır?</h3>
+        <label><input type="radio" name="s3"> Tablo oluşturmak için</label><br>
+        <label><input type="radio" name="s3"> Sayfaya bağlantı eklemek için</label><br>
+        <label><input type="radio" name="s3"> Resim eklemek için</label><br>
+    </div>
+
+    <div class="soru-kutu">
+        <h3>4. HTML’de liste oluşturmak için hangi etiket kullanılır?</h3>
+        <label><input type="radio" name="s4"> &lt;list&gt;</label><br>
+        <label><input type="radio" name="s4"> &lt;ul&gt;</label><br>
+        <label><input type="radio" name="s4"> &lt;p&gt;</label><br>
+    </div>
+
+    <div class="soru-kutu">
+        <h3>5. Bir HTML etiketi nasıl kapatılır?</h3>
+        <label><input type="radio" name="s5"> &lt;etiket&gt;-&lt;etiket&gt;</label><br>
+        <label><input type="radio" name="s5"> &lt;/etiket&gt;</label><br>
+        <label><input type="radio" name="s5"> &lt;etiket/&gt;</label><br>
+    </div>
+
+    <center>
+        <button type="submit">Gönder</button>
+        <button type="reset">Sıfırla</button>
+    </center>
+
+</form>
+
+</body>
+</html>
