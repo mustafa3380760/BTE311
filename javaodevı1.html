@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Java Görevi 1</title>
+    <style>
+        
+        body {
+            transition: background-color 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #3366cc; 
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 900px;
+            position: relative;
+        }
+
+        .image-display {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .image-box {
+            background-color: #ff884d; 
+            width: 30%;
+            height: 250px; 
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .image-box img {
+            max-width: 90%;
+            max-height: 80%;
+            object-fit: contain;
+            display: none; 
+            border-radius: 4px;
+        }
+
+        .controls {
+            margin-top: 10px;
+        }
+
+        .controls button {
+            padding: 5px 10px;
+            margin: 0 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+        }
+        
+        #random-selected-img {
+            margin-top: 30px;
+            max-width: 60%;
+            border: 3px solid white;
+            border-radius: 8px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="image-display">
+            <div class="image-box">
+                <img id="img1" src="" alt="Resim 1">
+                <div class="controls">
+                    <button onclick="toggleImage('img1', true)">Göster</button>
+                    <button onclick="toggleImage('img1', false)">Gizle</button>
+                </div>
+            </div>
+
+            <div class="image-box">
+                <img id="img2" src="" alt="Resim 2">
+                <div class="controls">
+                    <button onclick="toggleImage('img2', true)">Göster</button>
+                    <button onclick="toggleImage('img2', false)">Gizle</button>
+                </div>
+            </div>
+
+            <div class="image-box">
+                <img id="img3" src="" alt="Resim 3">
+                <div class="controls">
+                    <button onclick="toggleImage('img3', true)">Göster</button>
+                    <button onclick="toggleImage('img3', false)">Gizle</button>
+                </div>
+            </div>
+        </div>
+
+        <p id="random-image-text" style="color: white; margin-top: 20px; font-weight: bold;"></p>
+        
+        <img id="random-selected-img" src="" alt="Rastgele seçilen resim">
+        
+        <p style="color: white; margin-top: 30px;">
+            Alttaki resmi yenile: 
+            <button onclick="refreshBigImage()">Yenile</button>
+        </p>
+    </div>
+
+    <script>
+        
+        function toggleImage(imageId, isVisible) {
+            const imgElement = document.getElementById(imageId);
+            imgElement.style.display = isVisible ? 'block' : 'none';
+        }
+
+        
+        function setRandomBodyBackground() {
+            const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#00bcd4', '#009688', '#8bc34a', '#ffeb3b'];
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            document.body.style.backgroundColor = colors[randomIndex];
+        }
+        
+        
+        const allAvailableImages = [
+            'img/Cyberpunk_2077.jpg',
+            'img/Detroit_Become_Human.jpg',
+            'img/Elden_Ring.jpg',
+            'img/Ghost_of_Tsushima.jpg',
+            'img/Godofwar.jpg',
+            'img/Sekiro_art.jpg',
+            'img/SpiderMan2.jpeg',
+            'img/uncharted.jpg',
+            'img/Valorant_cover.jpg',
+            'img/Silksong.jpg',
+        ];
+
+        
+        function setRandomImagesForThreeBoxes() {
+            let tempImageList = [...allAvailableImages];
+
+            for (let i = 1; i <= 3; i++) {
+                if (tempImageList.length === 0) break;
+
+                const randomIndex = Math.floor(Math.random() * tempImageList.length);
+                const selectedImage = tempImageList[randomIndex];
+                
+                document.getElementById(`img${i}`).src = selectedImage;
+                document.getElementById(`img${i}`).alt = selectedImage.replace('img/', '').replace('.jpg', '');
+                
+                tempImageList.splice(randomIndex, 1);
+            }
+        }
+
+        
+        function selectRandomImageForBigBox() {
+            const randomIndex = Math.floor(Math.random() * allAvailableImages.length);
+            const selectedImage = allAvailableImages[randomIndex];
+            
+            document.getElementById('random-selected-img').src = selectedImage;
+            document.getElementById('random-image-text').textContent = 
+                `Rastgele seçilen resim: ${selectedImage.replace('img/', '')}`;
+        }
+
+        
+        function refreshBigImage() {
+            selectRandomImageForBigBox();
+        }
+
+        
+        window.onload = function() {
+            setRandomBodyBackground();
+            setRandomImagesForThreeBoxes();
+            selectRandomImageForBigBox();
+        };
+
+    </script>
+</body>
+</html>
