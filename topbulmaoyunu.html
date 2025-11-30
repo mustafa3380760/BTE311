@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Top Bulma Oyunu</title>
+
+<style>
+  body{
+    font-family:Arial,sans-serif;
+    text-align:center;
+    background:linear-gradient(to bottom right,#000000,#babac7);
+    background-size:300% 300%;
+    background-attachment:fixed;
+    margin:0;
+    padding-top:40px;
+    color:white;
+  }
+
+  h1{font-size:36px;}
+
+  #game{
+    position:relative;
+    width:600px;
+    height:250px;
+    margin:auto;
+    background:rgba(255,255,255,0.07);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:16px;
+    backdrop-filter:blur(6px);
+    padding-top:20px;
+  }
+
+  .cup{
+    width:120px;
+    height:120px;
+    background:#9a9898;
+    border-radius:10px;
+    position:absolute;
+    bottom:10px;
+    cursor:pointer;
+    transition:left 0.7s;
+  }
+
+  #ball{
+    width:40px;
+    height:40px;
+    background:red;
+    border-radius:50%;
+    position:absolute;
+    bottom:25px;
+    opacity:0;
+    transition:opacity 0.3s;
+  }
+
+  #ball.show{opacity:1;}
+
+  button{
+    margin-top:20px;
+    padding:12px 25px;
+    font-size:18px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#4CAF50;
+    color:white;
+  }
+
+  button:hover{opacity:0.8;}
+
+  #message{
+    margin-top:20px;
+    font-size:22px;
+    font-weight:bold;
+  }
+</style>
+</head>
+<body>
+
+<h1>Top Bulma Oyunu</h1>
+
+<div id="game">
+    <div class="cup" id="cup1"></div>
+    <div class="cup" id="cup2"></div>
+    <div class="cup" id="cup3"></div>
+
+    <div id="ball"></div>
+</div>
+
+<button id="startBtn">BAŞLA</button>
+<div id="message"></div>
+
+<script>
+
+const cups = [
+    document.getElementById("cup1"),
+    document.getElementById("cup2"),
+    document.getElementById("cup3")
+];
+const ball = document.getElementById("ball");
+const message = document.getElementById("message");
+const startButton = document.getElementById("startBtn");
+
+const startPositions = ["30px", "240px", "450px"];
+cups.forEach((cup, i) => cup.style.left = startPositions[i]);
+
+let ballPosition = 2;
+let mixing = false;
+
+function startGame() {
+    if (mixing) return;
+
+    message.textContent = "Top gösteriliyor...";
+    ballPosition = Math.floor(Math.random() * 3) + 1;
+    showBallAt(ballPosition);
+    ball.classList.add("show");
+
+    
+    startButton.disabled = true;
+    cups.forEach(cup => cup.style.pointerEvents = "none");
+
+    setTimeout(() => {
+        ball.classList.remove("show");
+        message.textContent = "Karıştırılıyor...";
+        mixCups();
+    }, 1000);
+}
+
+function showBallAt(num) {
+    const ballLeft = [70, 280, 490][num - 1];
+    ball.style.left = ballLeft + "px";
+}
+
+function mixCups() {
+    mixing = true;
+    let swaps = 8;
+    let count = 0;
+
+    const interval = setInterval(() => {
+        let a = Math.floor(Math.random() * 3);
+        let b = Math.floor(Math.random() * 3);
+        if (a === b) return;
+
+        
+        [cups[a].style.left, cups[b].style.left] =
+        [cups[b].style.left, cups[a].style.left];
+
+        
+        [cups[a], cups[b]] = [cups[b], cups[a]];
+
+        
+        if (ballPosition === a + 1) ballPosition = b + 1;
+        else if (ballPosition === b + 1) ballPosition = a + 1;
+
+        count++;
+        if (count >= swaps) {
+            clearInterval(interval);
+            mixing = false;
+            message.textContent = "Top hangi bardakta?";
+
+            
+            startButton.disabled = false;
+            cups.forEach(cup => cup.style.pointerEvents = "auto");
+        }
+    }, 700);
+}
+
+function guess(num) {
+    if (mixing) return;
+    showBallAt(ballPosition);
+    ball.classList.add("show");
+
+    message.textContent =
+        num === ballPosition
+        ? "Doğru bildin!"
+        : "Yanlış! Doğru bardak " + ballPosition;
+}
+
+cups.forEach((cup) => {
+    cup.addEventListener("click", () => {
+        if (mixing) return;
+        const idx = cups.indexOf(cup);
+        guess(idx + 1);
+    });
+});
+
+startButton.addEventListener("click", startGame);
+</script>
+
+</body>
+</html>
